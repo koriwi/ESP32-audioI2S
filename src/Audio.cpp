@@ -5235,6 +5235,7 @@ boolean Audio::streamDetection(uint32_t bytesAvail){
     return false;
 }
 //----------------------------------------------------------------------------------------------------------------------
+#ifndef AUDIO_NO_SD_FS
 void Audio::seek_m4a_ilst(){
     // ilist - item list atom, contains the metadata
 
@@ -5341,7 +5342,6 @@ void Audio::seek_m4a_ilst(){
     return;
 }
 //----------------------------------------------------------------------------------------------------------------------
-#ifndef AUDIO_NO_SD_FS
 void Audio::seek_m4a_stsz(){
     // stsz says what size each sample is in bytes. This is important for the decoder to be able to start at a chunk,
     // and then go through each sample by its size. The stsz atom can be behind the audio block. Therefore, searching
